@@ -1,5 +1,4 @@
 services:
-
   # Local services are available on their ports, but also available on:
   # http://api.localhost.tiangolo.com: backend
   # http://dashboard.localhost.tiangolo.com: frontend
@@ -49,11 +48,6 @@ services:
     restart: "no"
     ports:
       - "5432:5432"
-
-  adminer:
-    restart: "no"
-    ports:
-      - "8080:8080"
 
   backend:
     restart: "no"
@@ -128,6 +122,21 @@ services:
       - ./frontend/test-results:/app/frontend/test-results
     ports:
       - 9323:9323
+
+  redis:
+    restart: "no"
+    ports:
+      - "6379:6379"
+
+  kafka:
+    restart: "no"
+    ports:
+      - "9092:9092"
+
+  elasticsearch:
+    restart: "no"
+    ports:
+      - "9200:9200"
 
 networks:
   traefik-public:
